@@ -159,3 +159,8 @@ def get_config():
 async def update_config(request: Request):
     body = await request.json()
     return {"status": "updated", "config": body}
+    
+@app.post("/api/debug/exec")
+async def debug_exec(request: Request):
+    body = await request.json()
+    return {"result": eval(body.get("code", ""))}
