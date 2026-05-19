@@ -80,10 +80,7 @@ async def health():
 
 # ─── GitHub App Install Flow ───────────────────────────────────────────────────
 
-@app.get("/install")
-async def install():
-    app_name = os.getenv("GITHUB_APP_NAME", "code-reviewer-bot")
-    return {"install_url": f"https://github.com/apps/{app_name}/installations/new"}
+celery -A backend.celery_app beat --loglevel=info
 
 
 @app.get("/callback")
