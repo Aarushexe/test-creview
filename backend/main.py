@@ -83,8 +83,6 @@ async def health():
 @app.get("/install")
 async def install():
     app_name = os.getenv("GITHUB_APP_NAME", "code-reviewer-bot")
-    return {"install_url": f"https://github.com/apps/{app_name}/installations/new"}
-
 
 @app.get("/callback")
 async def callback(installation_id: int, setup_action: str = ""):
